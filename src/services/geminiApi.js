@@ -1,4 +1,4 @@
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent'
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent'
 
 export async function callGemini(apiKey, prompt) {
     const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
@@ -15,7 +15,7 @@ export async function callGemini(apiKey, prompt) {
 
     if (!res.ok) {
         const err = await res.json().catch(() => ({}))
-        throw new Error(err?.error?.message || 'Gemini API error')
+        throw new Error(err?.error?.message || 'Gemini API err')
     }
 
     const data = await res.json()
