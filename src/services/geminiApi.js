@@ -15,7 +15,7 @@ export async function callGemini(apiKey, prompt) {
 
     if (!res.ok) {
         const err = await res.json().catch(() => ({}))
-        throw new Error(err?.error?.message || 'Gemini API error')
+        throw new Error(err?.error?.message || 'Gemini API err')
     }
 
     const data = await res.json()
